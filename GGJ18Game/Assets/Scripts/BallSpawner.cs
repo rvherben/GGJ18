@@ -17,6 +17,10 @@ public class BallSpawner : MonoBehaviour {
 	public void Init () {
         _blueSpawner = transform.Find("Blue").gameObject;
         _redSpawner = transform.Find("Red").gameObject;
+    }
+
+    public void StartSpawning()
+    {
         _SpawnNewBall();
     }
 

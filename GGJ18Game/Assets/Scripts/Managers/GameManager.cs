@@ -11,4 +11,9 @@ public class GameManager : Singleton<GameManager> {
     {
         ballSpawner.Init();
     }
+
+    public void StartGame()
+    {
+        ballSpawner.StartSpawning();
+    }
 }
