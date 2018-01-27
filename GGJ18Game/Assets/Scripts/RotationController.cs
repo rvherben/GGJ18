@@ -9,7 +9,6 @@ public class RotationController : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		Debug.Log ("YO WTF MOUSEDOWN?");
 		var dir = Camera.main.WorldToScreenPoint(transform.position);
 		dir = Input.mousePosition - dir;
 		baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -18,7 +17,6 @@ public class RotationController : MonoBehaviour {
 
 	void OnMouseDrag()
 	{
-		Debug.Log ("YO WTF MOUSE DRAAAAAAG");
 		var dir = Camera.main.WorldToScreenPoint(transform.position);
 		dir = Input.mousePosition - dir;
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
