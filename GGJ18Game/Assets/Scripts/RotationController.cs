@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RotationController : MonoBehaviour {
 
 	private float baseAngle = 0f;
+    private Vector3 euler;
 
 	void OnMouseDown()
 	{
@@ -22,4 +23,9 @@ public class RotationController : MonoBehaviour {
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
 		transform.eulerAngles = Quaternion.AngleAxis(angle, Vector3.forward).eulerAngles;
 	}
+
+    public Vector3 getEulerRot(Vector3 Euler)
+    {
+        return Euler;
+    }
 }

@@ -8,5 +8,6 @@ public class GeneralManager : MonoBehaviour {
         //AudioManager.Instance.Init();
         ResourcesManager.Instance.Init();
         GameManager.Instance.Init();
+        RotationManager.Instance.Init();
 	}
 }
