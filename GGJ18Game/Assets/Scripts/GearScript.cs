@@ -17,7 +17,7 @@ public class GearScript : MonoBehaviour {
 	{
 		if (!reverse)
 		{
-			transform.eulerAngles = euler;
+			transform.eulerAngles = euler*rotateMultiplier;
 		} else
 		{
 			transform.eulerAngles = euler*-rotateMultiplier;
