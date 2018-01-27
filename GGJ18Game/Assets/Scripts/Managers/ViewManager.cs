@@ -14,7 +14,9 @@ public class ViewManager : Singleton<ViewManager> {
     [SerializeField]
     public GameObject settings;
     [SerializeField]
-    public SoundButton soundButton;
+    public SoundButton settingsSoundButton;
+    [SerializeField]
+    public SoundButton pauseSoundButton;
 
     GameObject _upcomingView;
 
@@ -22,7 +24,13 @@ public class ViewManager : Singleton<ViewManager> {
 
     public override void Init()
     {
-        soundButton.Init();
+        settingsSoundButton.Set();
+    }
+
+    void _SetSoundButtons()
+    {
+        settingsSoundButton.Set();
+        pauseSoundButton.Set();
     }
 
     public void ShowGame()
@@ -64,6 +72,7 @@ public class ViewManager : Singleton<ViewManager> {
         game.SetActive(false);
         mainMenu.SetActive(false);
         settings.SetActive(false);
+        _SetSoundButtons();
         _upcomingView.SetActive(true);
         _StartFadeIn();
     }

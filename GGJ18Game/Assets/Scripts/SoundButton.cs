@@ -12,7 +12,7 @@ public class SoundButton : MonoBehaviour {
     [SerializeField]
     Image soundButtonImage;
 
-    public void Init()
+    public void Set()
     {
         if (Settings.audioEnabled)
         {
