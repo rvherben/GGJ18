@@ -14,7 +14,7 @@ public class BallSpawner : MonoBehaviour {
     [SerializeField]
     public Color32 blue;
 	
-	void Start () {
+	public void Init () {
         _blueSpawner = transform.Find("Blue").gameObject;
         _redSpawner = transform.Find("Red").gameObject;
         _SpawnNewBall();

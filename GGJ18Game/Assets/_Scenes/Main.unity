@@ -349,7 +349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333494760
 GameObject:
@@ -521,7 +521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -124}
+  m_AnchoredPosition: {x: 3, y: -124.00001}
   m_SizeDelta: {x: 358, y: 28.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &421922188
@@ -1651,9 +1651,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1528113062}
-  - component: {fileID: 1528113061}
   - component: {fileID: 1528113060}
+  - component: {fileID: 1528113061}
   - component: {fileID: 1528113059}
+  - component: {fileID: 1528113063}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1707,8 +1708,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1528113063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1528113058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59356ac7693a84d4fbdb4e2ad556a8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballSpawner: {fileID: 551835928}
 --- !u!1 &1660339322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1812,7 @@ RectTransform:
   - {fileID: 1404376784}
   - {fileID: 678108006}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

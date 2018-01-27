@@ -7,5 +7,6 @@ public class GeneralManager : MonoBehaviour {
         // Initialize other managers
         //AudioManager.Instance.Init();
         ResourcesManager.Instance.Init();
+        GameManager.Instance.Init();
 	}
 }
