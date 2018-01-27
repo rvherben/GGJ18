@@ -7,6 +7,7 @@ public class BallSpawner : MonoBehaviour {
 
     GameObject _blueSpawner;
     GameObject _redSpawner;
+    List<GameObject> _activeBalls;
     [SerializeField]
     public Transform _playingField;
     [SerializeField]
@@ -17,11 +18,25 @@ public class BallSpawner : MonoBehaviour {
 	public void Init () {
         _blueSpawner = transform.Find("Blue").gameObject;
         _redSpawner = transform.Find("Red").gameObject;
+        _activeBalls = new List<GameObject>();
     }
 
     public void StartSpawning()
     {
         _SpawnNewBall();
+    }
+
+    public void StopSpawning()
+    {
+        CancelInvoke("_SpawnNewBall");
+        foreach(GameObject ball in _activeBalls)
+        {
+            if (ball != null)
+            {
+                ResourcesManager.Instance.RemoveResourceInstance(ball);
+            }
+        }
+        ViewManager.Instance.ShowMenu();
     }
 
     enum BallType
@@ -46,6 +61,7 @@ public class BallSpawner : MonoBehaviour {
     void _Spawn(BallType type)
     {
         GameObject ball = ResourcesManager.Instance.GetResourceInstance("Game/Ball").gameObject;
+        _activeBalls.Add(ball);
         ball.transform.SetParent(_playingField, false);
 
         if (type == BallType.Red)
