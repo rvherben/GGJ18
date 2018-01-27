@@ -16,4 +16,10 @@ public class GameManager : Singleton<GameManager> {
     {
         ballSpawner.StartSpawning();
     }
+
+    public void QuitFromPause()
+    {
+        ballSpawner.StopSpawning();
+    }
+
 }
