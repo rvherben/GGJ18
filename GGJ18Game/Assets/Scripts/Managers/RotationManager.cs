@@ -5,14 +5,21 @@ using UnityEngine;
 public class RotationManager : Singleton<RotationManager> {
 
     public Transform knob;
-    public float rotateMultiplier = 1f;
 
     public override void Init()
     {
         knob = GameObject.Find("RotateKnob").transform;
     }
-    
-    void Update () {
-        this.transform.eulerAngles = knob.GetComponent<RotationController>().getEulerRot(knob.eulerAngles) * rotateMultiplier;
+
+    //use same rotation as the knob (called if the reverse bool on the gear is unchecked) 
+    public void Rotate(float Multiplier)
+    {
+        this.transform.eulerAngles = knob.GetComponent<RotationController>().getEulerRot(knob.eulerAngles) * Multiplier;
+    }
+
+    //use opposite rotation as the knob (called if the reverse bool on the gear is checked)
+    public void CounterRotate(float Multiplier)
+    { 
+        this.transform.eulerAngles = knob.GetComponent<RotationController>().getEulerRot(knob.eulerAngles) * -Multiplier;
 	}
 }
