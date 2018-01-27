@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class RotationManager : Singleton<RotationManager> {
 
-    public Transform knob;
+    private Vector3 knobEuler;
 
-    public override void Init()
+    override public void Init()
     {
-        knob = GameObject.Find("RotateKnob").transform;
+        Debug.Log("random");
+        knobEuler = Vector3.zero;
     }
 
     //use same rotation as the knob (called if the reverse bool on the gear is unchecked) 
     public void Rotate(float Multiplier)
     {
-        this.transform.eulerAngles = knob.GetComponent<RotationController>().getEulerRot(knob.eulerAngles) * Multiplier;
+        this.gameObject.transform.eulerAngles = knobEuler * Multiplier;
     }
 
     //use opposite rotation as the knob (called if the reverse bool on the gear is checked)
     public void CounterRotate(float Multiplier)
     { 
-        this.transform.eulerAngles = knob.GetComponent<RotationController>().getEulerRot(knob.eulerAngles) * -Multiplier;
+        this.gameObject.transform.eulerAngles = knobEuler * -Multiplier;
 	}
+
+    public void SetEuler(Vector3 euler)
+    {
+        knobEuler = euler;
+    }
 }

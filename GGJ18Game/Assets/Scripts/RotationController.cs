@@ -21,11 +21,8 @@ public class RotationController : MonoBehaviour {
 		var dir = Camera.main.WorldToScreenPoint(transform.position);
 		dir = Input.mousePosition - dir;
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
-		transform.eulerAngles = Quaternion.AngleAxis(angle, Vector3.forward).eulerAngles;
+        euler = Quaternion.AngleAxis(angle, Vector3.forward).eulerAngles;
+        RotationManager.Instance.SetEuler(euler);
+        transform.eulerAngles = euler;
 	}
-
-    public Vector3 getEulerRot(Vector3 Euler)
-    {
-        return Euler;
-    }
 }
