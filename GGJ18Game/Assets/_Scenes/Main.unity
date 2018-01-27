@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 152457344}
   - component: {fileID: 152457346}
   - component: {fileID: 152457345}
+  - component: {fileID: 152457347}
   m_Layer: 5
   m_Name: Gear Middle2
   m_TagString: Untagged
@@ -131,14 +132,14 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 152457343}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 1694035769}
   m_Father: {fileID: 409596142}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 122, y: 58.00038}
@@ -177,6 +178,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 152457343}
+--- !u!114 &152457347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152457343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8d9df88be8fd248a0af14b7554ab17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateMultiplier: 1
+  reverse: 0
+  angle: 0
 --- !u!1 &169830362
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +606,7 @@ GameObject:
   - component: {fileID: 265225230}
   - component: {fileID: 265225232}
   - component: {fileID: 265225231}
+  - component: {fileID: 265225233}
   m_Layer: 5
   m_Name: Gear Top
   m_TagString: Untagged
@@ -650,6 +666,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 265225229}
+--- !u!114 &265225233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 265225229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8d9df88be8fd248a0af14b7554ab17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateMultiplier: 1
+  reverse: 1
+  angle: 0
 --- !u!1 &278419842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,6 +1699,7 @@ GameObject:
   - component: {fileID: 565232206}
   - component: {fileID: 565232208}
   - component: {fileID: 565232207}
+  - component: {fileID: 565232209}
   m_Layer: 5
   m_Name: Gear Middle1
   m_TagString: Untagged
@@ -1682,14 +1713,14 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 565232205}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1.0003201}
   m_Children:
   - {fileID: 240335950}
   m_Father: {fileID: 409596142}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -126, y: 58.000015}
@@ -1728,6 +1759,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 565232205}
+--- !u!114 &565232209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565232205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8d9df88be8fd248a0af14b7554ab17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateMultiplier: 1
+  reverse: 0
+  angle: 0
 --- !u!1 &576308949
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,7 +4091,6 @@ GameObject:
   - component: {fileID: 1528113059}
   - component: {fileID: 1528113063}
   - component: {fileID: 1528113064}
-  - component: {fileID: 1528113065}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -4131,17 +4175,6 @@ MonoBehaviour:
   settings: {fileID: 1369743497}
   settingsSoundButton: {fileID: 614464006}
   pauseSoundButton: {fileID: 737382080}
---- !u!114 &1528113065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1528113058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f8e7afdacf8484bb276271e4da9a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1637116836
 GameObject:
   m_ObjectHideFlags: 0

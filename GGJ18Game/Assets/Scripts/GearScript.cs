@@ -12,20 +12,15 @@ public class GearScript : MonoBehaviour {
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        this.gameObject.transform.eulerAngles *= angle;
 
-        if (!reverse)
-        {
-            RotationManager.Instance.Rotate(rotateMultiplier);
-        }
-
-        if (reverse)
-        {
-            RotationManager.Instance.CounterRotate(rotateMultiplier);
-        }
-
-    }
+	public void RotateWithEuler(Vector3 euler)
+	{
+		if (!reverse)
+		{
+			transform.eulerAngles = euler;
+		} else
+		{
+			transform.eulerAngles = euler*-rotateMultiplier;
+		}
+	}
 }

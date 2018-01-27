@@ -9,6 +9,5 @@ public class GeneralManager : MonoBehaviour {
         ResourcesManager.Instance.Init();
         GameManager.Instance.Init();
         ViewManager.Instance.Init();
-        RotationManager.Instance.Init();
 	}
 }
