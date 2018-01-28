@@ -7,21 +7,26 @@ public class GearScript : MonoBehaviour {
     public float rotateMultiplier = 1f;
     public bool reverse = false;
     public float angle = 0;
-	private Vector3 defaultEuler;
+	private Quaternion defaultRotation;
+	private RectTransform rect;
 
     // Use this for initialization
     void Start () {
-		defaultEuler = transform.eulerAngles;
+		rect = GetComponent<RectTransform>();
+		defaultRotation = rect.rotation;
 	}
 
-	public void RotateWithEuler(Vector3 euler)
+	// rotation == delta since last frame
+	public void RotateWithDifference(Quaternion newRotation)
 	{
 		if (!reverse)
 		{
-			transform.eulerAngles = defaultEuler + (euler * rotateMultiplier);
+			Quaternion finalRotation = Quaternion.LerpUnclamped (rect.rotation, rect.rotation * newRotation, rotateMultiplier);
+			rect.rotation = finalRotation;
 		} else
 		{
-			transform.eulerAngles = defaultEuler + (euler * -rotateMultiplier);
+			Quaternion finalRotation = Quaternion.LerpUnclamped (rect.rotation, rect.rotation * newRotation, -rotateMultiplier);
+			rect.rotation = finalRotation;
 		}
 	}
 }

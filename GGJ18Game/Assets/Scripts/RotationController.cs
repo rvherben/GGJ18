@@ -8,6 +8,7 @@ public class RotationController : MonoBehaviour {
 	private float baseAngle = 0f;
     private Vector3 euler;
 	List<Transform> gears;
+	Quaternion previousRotation;
 
 	void Start()
 	{
@@ -16,6 +17,7 @@ public class RotationController : MonoBehaviour {
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (1));
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (2));
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (3));
+		previousRotation = transform.rotation;
 	}
 
 	void OnMouseDown()
@@ -31,12 +33,13 @@ public class RotationController : MonoBehaviour {
 		var dir = Camera.main.WorldToScreenPoint(transform.position);
 		dir = Input.mousePosition - dir;
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
-        euler = Quaternion.AngleAxis(angle, Vector3.forward).eulerAngles;
-        transform.eulerAngles = euler;
+		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+		Quaternion rotationDifference = rotation * Quaternion.Inverse (previousRotation);
 
 		foreach (Transform gear in gears)
 		{
-			gear.GetComponent<GearScript> ().RotateWithEuler (euler);
+			gear.GetComponent<GearScript> ().RotateWithDifference (rotationDifference);
 		}
+		previousRotation = rotation;
 	}
 }
