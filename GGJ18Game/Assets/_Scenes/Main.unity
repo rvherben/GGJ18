@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8d9df88be8fd248a0af14b7554ab17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateMultiplier: 0.8
+  rotateMultiplier: 1.25
   reverse: 1
   angle: 0
 --- !u!114 &121622335
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8d9df88be8fd248a0af14b7554ab17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateMultiplier: 0.5
+  rotateMultiplier: 1
   reverse: 1
   angle: 0
 --- !u!1 &278419842
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8d9df88be8fd248a0af14b7554ab17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateMultiplier: 1
+  rotateMultiplier: 1.5
   reverse: 1
   angle: 0
 --- !u!114 &577671532
@@ -3463,7 +3463,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 894.99634, y: 20.3497}
+  m_Size: {x: 3000, y: 20.3497}
   m_EdgeRadius: 0
 --- !u!114 &1185244613
 MonoBehaviour:
@@ -4233,7 +4233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8d9df88be8fd248a0af14b7554ab17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateMultiplier: 0.5
+  rotateMultiplier: 1
   reverse: 0
   angle: 0
 --- !u!114 &1405234115
