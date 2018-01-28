@@ -30,10 +30,14 @@ public class SoundButton : MonoBehaviour {
         Settings.audioEnabled = !Settings.audioEnabled;
         if (Settings.audioEnabled)
         {
+            PlayerPrefs.SetInt("sound", 1);
+            AudioManager.Instance.ToggleSoundOn(1);
             soundButtonImage.sprite = soundOnSprite;
         }
         else
         {
+            PlayerPrefs.SetInt("sound", 0);
+            AudioManager.Instance.ToggleSoundOn(0);
             soundButtonImage.sprite = soundOffSprite;
         }
     }
