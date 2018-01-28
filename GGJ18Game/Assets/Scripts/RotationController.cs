@@ -15,6 +15,7 @@ public class RotationController : MonoBehaviour {
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (0));
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (1));
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (2));
+		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (3));
 	}
 
 	void OnMouseDown()
