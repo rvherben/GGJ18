@@ -14,8 +14,16 @@ public class AudioManager : Singleton<AudioManager>
     //AudioClip _gameMusic;
 
     /* Sound effect clips */
-    //[SerializeField]
-    //AudioClip _timerTick3;
+    [SerializeField]
+    AudioClip _buttonTap;
+    [SerializeField]
+    AudioClip _positive;
+    [SerializeField]
+    AudioClip _negative;
+    [SerializeField]
+    AudioClip _gearClick1;
+    [SerializeField]
+    AudioClip _gearClick2;
 
 
     override public void Init()
@@ -55,9 +63,22 @@ public class AudioManager : Singleton<AudioManager>
         AudioSource audioSource = _soundEffectSources[_soundEffectSourceIndex];
         switch (audioID)
         {
-            /*case AudioIDs.TIMER_TICK_1:
-                audioSource.clip = _timerTick1;
-                break;*/
+            case AudioIDs.BUTTON_TAP:
+                audioSource.clip = _buttonTap;
+                break;
+            case AudioIDs.POSITIVE:
+                audioSource.clip = _positive;
+                break;
+            case AudioIDs.NEGATIVE:
+                audioSource.clip = _negative;
+                break;
+            case AudioIDs.GEARCLICK1:
+                audioSource.clip = _gearClick1;
+                break;
+            case AudioIDs.GEARCLICK2:
+                audioSource.clip = _gearClick2;
+                break;
+
         }
         if (_soundOn)
         {

@@ -12,6 +12,8 @@ public class Ball : MonoBehaviour {
             if(gameObject.GetComponent<Image>().color == collision.gameObject.GetComponent<Image>().color)
             {
                 //Landed on correct color
+                UIManager.Instance.UpdateScore(1);
+                AudioManager.Instance.PlaySoundEffect(AudioIDs.POSITIVE);
                 StartCorrectRemoveAnimation();
             }
             else if(collision.gameObject.GetComponent<Image>().color == Color.black)
@@ -22,6 +24,8 @@ public class Ball : MonoBehaviour {
             else
             {
                 //Landed on wrong color
+                UIManager.Instance.UpdateScore(-1);
+                AudioManager.Instance.PlaySoundEffect(AudioIDs.NEGATIVE);
                 StartIncorrectRemoveAnimation();
             }
         }

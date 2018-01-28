@@ -2,10 +2,10 @@
 
 public class AudioIDs
 {
-    //Music
-    //public const string GAME_MUSIC = "GameMusic";
-
     //Sounds
-    //public const string TIMER_TICK_3 = "TimerTick3";
-
+    public const string BUTTON_TAP = "ButtonTap";
+    public const string POSITIVE = "Positive";
+    public const string NEGATIVE = "Negative";
+    public const string GEARCLICK1 = "GearClick1";
+    public const string GEARCLICK2 = "GearClick2";
 }

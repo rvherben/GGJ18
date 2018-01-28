@@ -77,7 +77,7 @@ public class BallSpawner : MonoBehaviour {
             ball.gameObject.GetComponent<Image>().color = blue;
         }
 
-        Invoke("_SpawnNewBall", 1);
+        Invoke("_SpawnNewBall", 3);
     }
 
 }

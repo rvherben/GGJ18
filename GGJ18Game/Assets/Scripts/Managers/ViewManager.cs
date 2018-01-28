@@ -79,6 +79,9 @@ public class ViewManager : Singleton<ViewManager> {
 
     void _StartFadeIn()
     {
+        if (_upcomingView == game)
+            UIManager.Instance.ResetUI();
+
         Color c = fadeOverlay.color;
         c.a = 1;
         fadeOverlay.color = c;

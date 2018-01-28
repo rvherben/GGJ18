@@ -26,6 +26,7 @@ public class SoundButton : MonoBehaviour {
 
     public void OnClick()
     {
+        AudioManager.Instance.PlaySoundEffect(AudioIDs.BUTTON_TAP);
         Settings.audioEnabled = !Settings.audioEnabled;
         if (Settings.audioEnabled)
         {
