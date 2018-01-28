@@ -40,7 +40,7 @@ public class RotationController : MonoBehaviour {
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
 		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 		Quaternion rotationDifference = rotation * Quaternion.Inverse (previousRotation);
-
+        transform.rotation = rotation;
 		foreach (Transform gear in gears)
 		{
 			gear.GetComponent<GearScript> ().RotateWithDifference (rotationDifference);
