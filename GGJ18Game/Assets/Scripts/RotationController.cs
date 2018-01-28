@@ -9,6 +9,11 @@ public class RotationController : MonoBehaviour {
     private Vector3 euler;
 	List<Transform> gears;
 	Quaternion previousRotation;
+    const float CLICK_COOLDOWN = 10;
+    float cooldown;
+    bool clickswitch = false;
+    float rotationCount = 0;
+    const float ANGLE_CLICK_THRESHOLD = 0.3f;
 
 	void Start()
 	{
@@ -40,6 +45,20 @@ public class RotationController : MonoBehaviour {
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
 		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 		Quaternion rotationDifference = rotation * Quaternion.Inverse (previousRotation);
+        rotationCount += rotationDifference.z;
+        if (rotationCount > ANGLE_CLICK_THRESHOLD || rotationCount < -ANGLE_CLICK_THRESHOLD)
+        {
+            rotationCount = 0;
+            if (clickswitch)
+            {
+                AudioManager.Instance.PlaySoundEffect(AudioIDs.GEARCLICK1);
+            }
+            else
+            {
+                AudioManager.Instance.PlaySoundEffect(AudioIDs.GEARCLICK2);
+            }
+            clickswitch = !clickswitch;
+        }
         transform.rotation = rotation;
 		foreach (Transform gear in gears)
 		{
