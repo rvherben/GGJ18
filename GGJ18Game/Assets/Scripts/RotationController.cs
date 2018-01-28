@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class RotationController : MonoBehaviour {
 
+	private bool hintDeleted = false;
 	private float baseAngle = 0f;
     private Vector3 euler;
 	List<Transform> gears;
@@ -14,6 +15,7 @@ public class RotationController : MonoBehaviour {
     bool clickswitch = false;
     float rotationCount = 0;
     const float ANGLE_CLICK_THRESHOLD = 0.3f;
+	const float ROTATION_CAP = 0.3f;
 
 	void Start()
 	{
@@ -40,11 +42,21 @@ public class RotationController : MonoBehaviour {
 
 	void OnMouseDrag()
 	{
+		if (!hintDeleted)
+		{
+			GameObject.Find ("RotationHint").SetActive (false);
+			hintDeleted = true;
+		}
 		var dir = Camera.main.WorldToScreenPoint(transform.position);
 		dir = Input.mousePosition - dir;
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
 		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 		Quaternion rotationDifference = rotation * Quaternion.Inverse (previousRotation);
+		if (rotationDifference.z > ROTATION_CAP)
+			rotationDifference.z = ROTATION_CAP;
+		else if (rotationDifference.z < -ROTATION_CAP)
+			rotationDifference.z = -ROTATION_CAP;
+		Debug.Log ("rotationdifference = " + rotationDifference.z);
         rotationCount += rotationDifference.z;
         if (rotationCount > ANGLE_CLICK_THRESHOLD || rotationCount < -ANGLE_CLICK_THRESHOLD)
         {
