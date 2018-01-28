@@ -17,7 +17,12 @@ public class RotationController : MonoBehaviour {
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (1));
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (2));
 		gears.Add (GameObject.Find ("PlayingField").transform.GetChild (3));
-		previousRotation = transform.rotation;
+        gears.Add(GameObject.Find("Background").transform.GetChild(0));
+        gears.Add(GameObject.Find("Background").transform.GetChild(1));
+        gears.Add(GameObject.Find("Background").transform.GetChild(2));
+        gears.Add(GameObject.Find("Background").transform.GetChild(3));
+        gears.Add(GameObject.Find("Background").transform.GetChild(4));
+        previousRotation = transform.rotation;
 	}
 
 	void OnMouseDown()
