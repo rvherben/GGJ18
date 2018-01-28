@@ -15,6 +15,7 @@ public class RotationController : MonoBehaviour {
     bool clickswitch = false;
     float rotationCount = 0;
     const float ANGLE_CLICK_THRESHOLD = 0.3f;
+	const float ROTATION_CAP = 0.3f;
 
 	void Start()
 	{
@@ -51,6 +52,11 @@ public class RotationController : MonoBehaviour {
 		var angle =  Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - baseAngle;
 		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 		Quaternion rotationDifference = rotation * Quaternion.Inverse (previousRotation);
+		if (rotationDifference.z > ROTATION_CAP)
+			rotationDifference.z = ROTATION_CAP;
+		else if (rotationDifference.z < -ROTATION_CAP)
+			rotationDifference.z = -ROTATION_CAP;
+		Debug.Log ("rotationdifference = " + rotationDifference.z);
         rotationCount += rotationDifference.z;
         if (rotationCount > ANGLE_CLICK_THRESHOLD || rotationCount < -ANGLE_CLICK_THRESHOLD)
         {
